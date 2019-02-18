@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1，shrink-to-fit=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>国信安— http://http://www.gxaedu.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 10rem;
+            height: 10rem;
+            background: red;
+            margin: 10rem auto;
+        }
+        @keyframes move {
+            0%{transform: rotate(0deg)}
+            25%{transform: rotate(-15deg)}
+            50%{transform: rotate(0deg)}
+            75%{transform: rotate(15deg)}
+            100%{transform: rotate(0deg)}
+        }
+
+        .shake{
+            animation:move .5s;
+        }
+    </style>
+    <script>
+        var oDiv=document.querySelector('div');
+        var lastX=0;
+        var lastY=0;
+        var lastZ=0;
+        if(window.DeviceMotionEvent){
+            window.addEventListener('devicemotion',function (ev) {
+                var acc=ev.accelerationIncludingGravity;
+
+                //acc.x  acc.y acc.z
+                if(acc.x-lastX>20 || acc.y-lastY>20 || acc.z-lastZ>20){
+                    oDiv.className='shake';
+                }
+
+                oDiv.addEventListener('WebkitAnimationEnd',function(){
+                    oDiv.className='';
+                },false);
+
+            },false)
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
